@@ -35,4 +35,9 @@ public class MemoryMemberRepository implements MemberRepository {
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    // Test 시 저장소를 초기화하는 메서드
+    public void clearStore() {
+        store.clear(); // 저장소 초기화
+    }
 }
