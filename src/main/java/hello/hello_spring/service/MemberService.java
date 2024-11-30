@@ -3,15 +3,19 @@ package hello.hello_spring.service;
 import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 // ctrl + shift + t 하면 Test class 생성
+//@Service // container에서 Service인지를 지정해서 MemberController와 연결 가능하게 함
 public class MemberService {
 
     private final MemberRepository memberRepository;
 
+    //@Autowired // MemberRepository가 필요하다고 인지시켜 연결해줌
     public MemberService(MemberRepository memberRepository) { // alt + insert
         this.memberRepository = memberRepository;
     }

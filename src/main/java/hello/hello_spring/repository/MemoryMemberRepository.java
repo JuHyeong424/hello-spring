@@ -1,8 +1,11 @@
 package hello.hello_spring.repository;
 
 import hello.hello_spring.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
+
+//@Repository // container에 repository를 지정해서 Controller와 연결 가능하게 함
 
 public class MemoryMemberRepository implements MemberRepository {
 
