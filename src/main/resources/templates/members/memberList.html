@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<div class="container">
+  <div>
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>이름</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="member : ${members}"> <!-- MemberController에 있는 Model 안의 객체 값 가져옴. Loop로 실행 -->
+        <td th:text="${member.id}"></td>  <!-- Member 클래스에 있는 getId() -->
+        <td th:text="${member.name}"></td> <!-- Member 클래스에 있는 getName() -->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

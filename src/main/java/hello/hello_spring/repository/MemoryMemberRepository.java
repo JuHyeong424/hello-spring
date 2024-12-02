@@ -22,7 +22,7 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     // Id를 통해 회원 찾고(store.get(id)), Optioanl로 감싸기
     public Optional<Member> findById(Long id) {
-        return Optional.of(store.get(id));
+        return Optional.ofNullable(store.get(id));
     }
 
     @Override

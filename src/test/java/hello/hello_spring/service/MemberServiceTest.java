@@ -8,6 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MemberServiceTest {
@@ -27,7 +28,7 @@ class MemberServiceTest {
     }
 
     @Test
-    void 회원가입() { // Test메서드명은 한글로 적어도 상관없음
+    public void 회원가입() throws Exception { // Test메서드명은 한글로 적어도 상관없음
         // given
         Member member = new Member();
         member.setName("hello");
@@ -37,11 +38,11 @@ class MemberServiceTest {
 
         // then
         Member findMember = memberService.findOne(saveId).get(); // Optional이므로 get()으로 직접 접근
-        org.assertj.core.api.Assertions.assertThat(member.getName()).isEqualTo(findMember.getName()); // member의 name과 repository의 name이 같은지 비교
+        assertEquals(member.getName(), findMember.getName());
     }
 
     @Test
-    public void 중복_회원_예외() {
+    public void 중복_회원_예외() throws Exception {
         //given
         Member member1 = new Member();
         member1.setName("spring");
