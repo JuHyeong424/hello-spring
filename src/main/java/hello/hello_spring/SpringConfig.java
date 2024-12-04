@@ -1,5 +1,6 @@
 package hello.hello_spring;
 
+import hello.hello_spring.aop.TimeTraceAop;
 import hello.hello_spring.repository.*;
 import hello.hello_spring.service.MemberService;
 import jakarta.persistence.EntityManager;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.sql.Time;
 
 /*
 자바 코드로 직접 spring 빈 등록
@@ -50,6 +52,14 @@ public class SpringConfig {
         return new MemberService(memberRepository);
     }
 
+    /*
+    AOP Bean. @Component 사용하던가 @Bean 사용
+    @Bean
+    public TimeTraceAop timeTraceAop() {
+        return new TimeTraceAop();
+    }
+
+     */
     /*
     @Bean
     public MemberRepository memberRepository() {
