@@ -22,23 +22,41 @@ public class SpringConfig {
         this.dataSource = dataSource;
     }
      */
-
+    /*
     EntityManager em;
     @Autowired
     public SpringConfig(EntityManager em) {
         this.em = em;
     }
+    */
 
+    // spring data jpa
+    private final MemberRepository memberRepository;
+
+    @Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
+
+    /*
     @Bean // 해당 메서드가 반환하는 객체를 스프링 빈으로 등록. 스프링 컨테이너가 객체를 관리하며 다른 곳에서 injection 가능
     public MemberService memberService() { // 빈 이름 memberService
         return new MemberService(memberRepository()); // Constructor Injection을 사용해 MemberRepository를 의존성으로 전달
     }
+     */
 
+    @Bean // 해당 메서드가 반환하는 객체를 스프링 빈으로 등록. 스프링 컨테이너가 객체를 관리하며 다른 곳에서 injection 가능
+    public MemberService memberService() { // 빈 이름 memberService
+        return new MemberService(memberRepository);
+    }
+
+    /*
     @Bean
     public MemberRepository memberRepository() {
         // return new MemoryMemberRepository();
         // return new JdbcMemberRepository(dataSource);
         // return new JdbcTemplateMemberRepository(dataSource);
-        return new JpaMemberRepository(em);
+        // return new JpaMemberRepository(em);
     }
+     */
 }

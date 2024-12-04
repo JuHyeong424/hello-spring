@@ -26,7 +26,7 @@ class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception { // Test메서드명은 한글로 적어도 상관없음
         // given
         Member member = new Member();
-        member.setName("spring3");
+        member.setName("spring");
 
         // when
         Long saveId = memberService.join(member);
