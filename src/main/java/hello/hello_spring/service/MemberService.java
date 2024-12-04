@@ -5,12 +5,15 @@ import hello.hello_spring.repository.MemberRepository;
 import hello.hello_spring.repository.MemoryMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 // ctrl + shift + t 하면 Test class 생성
 //@Service // container에서 Service인지를 지정해서 MemberController와 연결 가능하게 함
+
+@Transactional // data 저장 및 변경. join 메서드 실행 시
 public class MemberService {
 
     private final MemberRepository memberRepository;
